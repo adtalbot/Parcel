@@ -16,6 +16,7 @@ attr_reader(:height, :width, :length, :weight, :distance, :speed)
       @distance = 2
     else distance >= 500 && (distance < 1000)
       @distance = 3
+      binding.pry
     end
 
     if speed.==('expedited')
