@@ -11,7 +11,7 @@ describe('the shipping path for parcels', {:type => :feature}) do
   fill_in('height', :with => 3)
   fill_in('weight', :with => 10)
   fill_in('distance', :with => 1)
-  fill_in('speed', :with => 'expedited')
+  fill_in('speed', :with => 'Expedited')
   click_button('Ship It!')
   expect(page).to have_content(30)
   end

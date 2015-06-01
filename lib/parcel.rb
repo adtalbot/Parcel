@@ -16,14 +16,14 @@ attr_reader(:height, :width, :length, :weight, :distance, :speed)
       @distance = 2
     else distance >= 500 && (distance < 1000)
       @distance = 3
-    
+
     end
 
-    if speed.==('expedited')
+    if speed.==('Expedited')
       @speed = 3
-    elsif speed.==('two_day')
+    elsif speed.==('Two_Day')
       @speed = 2
-    else speed.==('ground')
+    else speed.==('Ground')
       @speed = 1
     end
   end
