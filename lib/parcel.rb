@@ -23,7 +23,12 @@ class Parcel
   define_singleton_method(:all) do
     @@all_parcels
   end
+
   define_method(:save) do
     @@all_parcels.push(self)
+  end
+
+  define_singleton_method(:clear) do
+    @@all_parcels = []
   end
 end

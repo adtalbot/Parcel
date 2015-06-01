@@ -15,4 +15,11 @@ describe(Parcel) do
       expect(Parcel.all()).to(eq([test_parcel]))
     end
   end
+  describe('.clear') do
+    it('empties out all of the saved parcels') do
+      Parcel.new(3,6,2).save()
+      Parcel.clear()
+      expect(Parcel.all()).to(eq([]))
+    end
+  end
 end
