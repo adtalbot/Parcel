@@ -45,13 +45,16 @@ class Parcel
   define_method(:distance_calculation) do
     if @distance > 0 && (@distance < 100)
       @distance_value = 1
-    elsif @distance > 100 && (@distance < 500)
+    elsif @distance >= 100 && (@distance < 500)
       @distance_value = 2
-    elsif @distance > 500 && (@distance < 1000)
+    elsif @distance >= 500 && (@distance < 1000)
       @distance_value = 3
     else
       'we do not ship that far'
     end
     @distance_value
+  end
+  define_method(:weight_calculation) do
+    weight_calculation = @weight.*(1)
   end
 end

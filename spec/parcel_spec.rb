@@ -39,8 +39,14 @@ describe(Parcel) do
   end
     describe('#distance_calculation') do
       it('calculates cost of shipping by distance') do
-        test_parcel = Parcel.new(3,6,2,1,99)
-        expect(test_parcel.distance_calculation()).to(eq(1))
+        test_parcel = Parcel.new(3,6,2,1,100)
+        expect(test_parcel.distance_calculation()).to(eq(2))
+    end
+  end
+  describe('#weight_calculation') do
+    it('calculates cost per pound') do
+      test_parcel = Parcel.new(3,6,2,1,100)
+      expect(test_parcel.weight_calculation()).to(eq(1))
     end
   end
 end
