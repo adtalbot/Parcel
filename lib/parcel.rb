@@ -2,10 +2,11 @@ class Parcel
 
 @@all_parcels = []
 
-  define_method(:initialize) do |weight, height, width|
+  define_method(:initialize) do |height, width, length, weight|
     @weight = weight
     @height = height
     @width = width
+    @length = length
   end
 
   define_method(:weight) do
@@ -16,7 +17,7 @@ class Parcel
     @height
   end
 
-  define_method(:weight) do
+  define_method(:width) do
     @width
   end
 
@@ -30,5 +31,9 @@ class Parcel
 
   define_singleton_method(:clear) do
     @@all_parcels = []
+  end
+
+  define_method(:volume) do
+    @volume = (@width *@height *@length)
   end
 end
