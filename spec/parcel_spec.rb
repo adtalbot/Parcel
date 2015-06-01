@@ -13,40 +13,36 @@ describe(Parcel) do
   end
   describe('#save') do
     it('adds a property of the parcel and saves it') do
-      test_parcel = Parcel.new(3,6,2,10,100)
+      test_parcel = Parcel.new(3,6,2,10,1,'expedited')
       test_parcel.save()
       expect(Parcel.all()).to(eq([test_parcel]))
     end
   end
   describe('.clear') do
     it('empties out all of the saved parcels') do
-      Parcel.new(3,6,2,10,100).save()
+      Parcel.new(3,6,2,10,1,'expedited').save()
       Parcel.clear()
       expect(Parcel.all()).to(eq([]))
     end
   end
     describe('#volume') do
       it('calculates the volume of a parcel') do
-        test_parcel = Parcel.new(3,6,2,10,100)
+        test_parcel = Parcel.new(3,6,2,10,1,'expedited')
         expect(test_parcel.volume()).to(eq(36))
       end
     end
-    describe('#speed') do
-      it('determines how quickly a package will ship') do
-        test_parcel = Parcel.new(3,6,2,1,100)
-        expect(test_parcel.speed().fetch('expedited')).to(eq(3))
-    end
-  end
-    describe('#distance_calculation') do
-      it('calculates cost of shipping by distance') do
-        test_parcel = Parcel.new(3,6,2,1,100)
-        expect(test_parcel.distance_calculation()).to(eq(2))
-    end
-  end
+
+
   describe('#weight_calculation') do
     it('calculates cost per pound') do
-      test_parcel = Parcel.new(3,6,2,1,100)
+      test_parcel = Parcel.new(3,6,2,1,1,'expedited')
       expect(test_parcel.weight_calculation()).to(eq(1))
+    end
+  end
+  describe('#cost_to_ship') do
+    it('determine the shipping cost') do
+      test_parcel = Parcel.new(3,6,2,5,1,'expedited')
+      expect(test_parcel.cost_to_ship()).to(eq(15))
     end
   end
 end

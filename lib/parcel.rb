@@ -1,25 +1,30 @@
 class Parcel
 
+attr_reader(:height, :width, :length, :weight, :distance, :speed)
+
 @@all_parcels = []
 
-  define_method(:initialize) do |height, width, length, weight, distance|
-    @weight = weight
+  define_method(:initialize) do |height, width, length, weight, distance, speed|
     @height = height
     @width = width
     @length = length
-    @distance = distance
-  end
+    @weight = weight
 
-  define_method(:weight) do
-    @weight
-  end
+    if distance > 0 && (distance < 100)
+      @distance = 1
+    elsif distance >= 100 && (distance < 500)
+      @distance = 2
+    else distance >= 500 && (distance < 1000)
+      @distance = 3
+    end
 
-  define_method(:height) do
-    @height
-  end
-
-  define_method(:width) do
-    @width
+    if speed.==('expedited')
+      @speed = 3
+    elsif speed.==('two_day')
+      @speed = 2
+    else speed.==('ground')
+      @speed = 1
+    end
   end
 
   define_singleton_method(:all) do
@@ -38,23 +43,11 @@ class Parcel
     @volume = (@width * @height * @length)
   end
 
-  define_method(:speed) do
-    speed = {'expedited' => 3, 'two_day' => 2, 'ground' => 1}
+  define_method(:weight_calculation) do
+    @weight = weight.*(1)
   end
 
-  define_method(:distance_calculation) do
-    if @distance > 0 && (@distance < 100)
-      @distance_value = 1
-    elsif @distance >= 100 && (@distance < 500)
-      @distance_value = 2
-    elsif @distance >= 500 && (@distance < 1000)
-      @distance_value = 3
-    else
-      'we do not ship that far'
-    end
-    @distance_value
-  end
-  define_method(:weight_calculation) do
-    weight_calculation = @weight.*(1)
+  define_method(:cost_to_ship) do
+    @cost_to_ship = (@distance.* @weight.* @speed)
   end
 end
