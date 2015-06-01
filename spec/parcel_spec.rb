@@ -30,4 +30,10 @@ describe(Parcel) do
         expect(test_parcel.volume()).to(eq(36))
       end
     end
- end
+    describe('#speed') do
+      it('determines how quickly a package will ship') do
+        test_parcel = Parcel.new(3,6,2,1)
+        expect(test_parcel.speed().fetch('expedited')).to(eq(3))
+    end
+  end
+end

@@ -36,4 +36,8 @@ class Parcel
   define_method(:volume) do
     @volume = (@width *@height *@length)
   end
+
+  define_method(:speed) do
+    speed = {'expedited' => 3, 'two_day' => 2, 'ground' => 1}
+  end
 end
