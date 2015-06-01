@@ -8,13 +8,13 @@ get('/') do
 end
 
 get('/results') do
-  @length = params.fetch('length')
-  @width = params.fetch('width')
-  @height = params.fetch('height')
-  @weight = params.fetch('weight')
-  @distance = params.fetch('distance')
-  @speed = params.fetch('speed')
+  @length = params.fetch('length').to_i
+  @width = params.fetch('width').to_i
+  @height = params.fetch('height').to_i
+  @weight = params.fetch('weight').to_i
+  @distance = params.fetch('distance').to_i
+  @speed = params.fetch('speed').to_i
   parcel= Parcel.new(@length, @width, @height, @weight, @distance, @speed)
-  @cost = parcel.cost_of_shipping
+  @cost = parcel.cost_to_ship
     erb(:results)
   end

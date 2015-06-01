@@ -1,0 +1,28 @@
+ /*.form-control:focus {
+
+   -webkitt-box-shadow:none !important;
+   box-shadow: none !important;
+
+ }*/
+
+.jumbotron {
+
+  font-size: 50px;
+  color: navy blue;
+  text-align:justify;
+}
+
+
+body {
+  background-color: transparent !important;
+  margin-bottom: 25px;
+}
+
+
+.container {
+
+  margin-top: 50px;
+  border-radius: 10px;
+  background: rgba(0,0,0,.2);
+  padding:25px 0;
+}
